@@ -1,0 +1,12 @@
+<ul>
+    @for (projets of projetServices.projets; track projets.id){
+        <li>
+            <p>Liste des projets</p>
+            {{projets.nom}} 
+            <a [routerLink]="['/projets', projets.id]">Voir détail</a>
+        </li>
+    }
+   
+    
+</ul>
+
