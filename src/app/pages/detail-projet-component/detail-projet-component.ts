@@ -12,7 +12,7 @@ export class DetailProjetComponent {
   private projetService = inject(ProjetService);
   private route = inject(ActivatedRoute);
 
-  projet: Projet | undefined;
+  projet: any = null;
 
   constructor() {
     const id = Number(this.route.snapshot.paramMap.get('id'));

@@ -14,14 +14,11 @@ export class AjouterProjetComponent {
   private router = inject(Router);
 
   nom: string = '';
-  statut: string = '';
+  statut: string = 'Planifié';
 
-  onSubmit() {
+  ajouterProjet() {
     if (this.nom.trim()) {
-      this.projetService.addProjet({
-        nom: this.nom,
-        statut: this.statut
-      });
+      this.projetService.addProjet(this.nom, this.statut);
       this.router.navigate(['/']);
     }
   }

@@ -21,13 +21,22 @@ export class ProjetService {
     return this.projets;
   }
 
-  getProjetById(id: number): Projet | undefined {
-    return this.projets.find(p => p.id === id);
+  getProjetById(id: number) {
+    for (let i = 0; i < this.projets.length; i++) {
+      if (this.projets[i].id === id) {
+        return this.projets[i];
+      }
+    }
+    return null;
   }
 
-  addProjet(projet: Omit<Projet, 'id'>): void {
-    const newId = Math.max(...this.projets.map(p => p.id), 0) + 1;
-    const newProjet: Projet = { ...projet, id: newId };
+  addProjet(nom: string, statut: string): void {
+    let newId = 1;
+    if (this.projets.length > 0) {
+      newId = this.projets[this.projets.length - 1].id + 1;
+    }
+    
+    let newProjet = { id: newId, nom: nom, statut: statut };
     this.projets.push(newProjet);
   }
 }

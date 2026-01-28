@@ -9,5 +9,5 @@ import { Nav } from './nav/nav';
   styleUrl: './app.scss'
 })
 export class App {
-  title = signal('tp-d-angular');
+  title = 'tp-d-angular';
 }
