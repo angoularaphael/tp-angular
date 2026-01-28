@@ -1,1 +1,19 @@
-<p>nav works!</p>
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-brand">
+      <h1>Gestion de Projets</h1>
+    </div>
+    <ul class="nav-menu">
+      <li>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">
+          📋 Liste des projets
+        </a>
+      </li>
+      <li>
+        <a routerLink="/ajouter" routerLinkActive="active" class="nav-link">
+          ➕ Ajouter un projet
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

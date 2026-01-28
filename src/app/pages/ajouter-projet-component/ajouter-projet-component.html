@@ -1,1 +1,37 @@
-<p>ajouter-projet-component works!</p>
+<div class="ajouter-projet">
+  <h1>Ajouter un nouveau projet</h1>
+  
+  <form (ngSubmit)="onSubmit()" class="form-projet">
+    <div class="form-group">
+      <label for="nom">Nom du projet *</label>
+      <input 
+        type="text" 
+        id="nom" 
+        [(ngModel)]="nom" 
+        name="nom"
+        placeholder="Entrez le nom du projet"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="statut">Statut du projet</label>
+      <select 
+        id="statut" 
+        [(ngModel)]="statut" 
+        name="statut"
+      >
+        <option value="Planifié">Planifié</option>
+        <option value="En cours">En cours</option>
+        <option value="Terminé">Terminé</option>
+      </select>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn-submit" [disabled]="!nom.trim()">
+        Ajouter le projet
+      </button>
+      <a routerLink="/" class="btn-cancel">Annuler</a>
+    </div>
+  </form>
+</div>

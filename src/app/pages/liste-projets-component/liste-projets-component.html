@@ -1,1 +1,34 @@
-<p>liste-projets-component works!</p>
+<div class="liste-projets">
+  <h1>Liste des Projets</h1>
+  
+  <a routerLink="/ajouter" class="btn-ajouter">+ Ajouter un projet</a>
+
+  @if (projets.length === 0) {
+    <p class="no-projects">Aucun projet disponible</p>
+  } @else {
+    <table class="projets-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Statut</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (projet of projets; track projet.id) {
+          <tr>
+            <td>{{ projet.id }}</td>
+            <td>{{ projet.nom }}</td>
+            <td class="statut" [class]="'statut-' + projet.statut.toLowerCase().replace(/\s+/g, '-')">
+              {{ projet.statut }}
+            </td>
+            <td>
+              <a [routerLink]="'/projet/' + projet.id" class="btn-detail">Voir détail</a>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</div>

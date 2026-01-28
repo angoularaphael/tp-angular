@@ -1,1 +1,18 @@
-<p>detail-projet-component works!</p>
+<div class="detail-projet">
+  @if (projet) {
+    <div class="projet-card">
+      <h1>{{ projet.nom }}</h1>
+      <div class="detail-info">
+        <p><strong>ID:</strong> {{ projet.id }}</p>
+        <p><strong>Statut:</strong> <span class="statut" [class]="'statut-' + projet.statut.toLowerCase().replace(/\s+/g, '-')">{{ projet.statut }}</span></p>
+      </div>
+    </div>
+  } @else {
+    <div class="error-message">
+      <p>Projet non trouvé</p>
+      <a routerLink="/" class="btn-back">Retour à la liste</a>
+    </div>
+  }
+  
+  <a routerLink="/" class="btn-back">← Retour à la liste</a>
+</div>
